@@ -371,6 +371,7 @@
         .cert-card:hover {
             transform: translateY(-10px);
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
         }
 
         .cert-card h3 {
@@ -393,6 +394,37 @@
             color: var(--text-gray);
             font-size: 0.9rem;
         }
+
+        /* ✅ New Preview Section */
+        .cert-preview {
+            margin-top: 40px;
+            text-align: center;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .cert-preview img {
+            max-width: 650px;
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+            animation: zoomIn 0.6s ease-in-out;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
 
         /* Contact Section */
         .contact-content {
@@ -526,15 +558,20 @@
                 </div>
                 <div class="about-text">
                     <h2>About Me</h2>
-                    <p>Currently working on my portfolio website. Looking to collaborate on Open Source / AI / ML projects. Open to help with Python, C++ & beginner-friendly ML. Currently learning Statistics, Mathematics for Machine Learning. Fun fact: I love math so much that I chose Data Science just to live in numbers!</p>
+                    <p>Hi, I’m Prodhosh — a first-year CSE student at VIT Chennai, also pursuing a BS degree in Data Science from IIT Madras.</p>
                     <br>
-                    <p>First-year Computer Science student at VIT Chennai, also pursuing a BS in Data Science at IIT Madras. Skilled in Python, C++, SQL and data analysis with Excel and Power BI. Building a strong foundation in statistics and mathematics, with interest in applying data science and machine learning to solve real-world problems.</p>
+                    <p> I’m really into data science and machine learning, and I love using code to solve real problems.
+I’m curious, always up for learning something new, and excited to explore how data and AI can actually make a difference.</p>
+                    <br>
+                    <p>
+🔍 Aspiring Data Scientist / ML Engineer</p>
+<p>💼 Open to internship opportunities</p>
                 </div>
             </div>
         </div>
-    </section>
+    </section
 
-    <!-- Skills Section -->
+    <!-- skills section -->
     <section id="skills">
         <div class="container">
             <h2 class="section-title">Tech Skills</h2>
@@ -623,7 +660,7 @@
                             <a href="https://github.com/PRODHOSH/iitm-cgpa-calculator" target="_blank">
                                 <i class="fab fa-github"></i> GitHub
                             </a>
-                            <a href="#" target="_blank">
+                            <a href="https://claude.ai/public/artifacts/6848cabf-02af-41b5-b25e-fcf75eabdc3a" target="_blank">
                                 <i class="fas fa-external-link-alt"></i> Live Demo
                             </a>
                         </div>
@@ -640,7 +677,7 @@
                             <a href="https://github.com/PRODHOSH/quantum_key_distrubution" target="_blank">
                                 <i class="fab fa-github"></i> GitHub
                             </a>
-                            <a href="#" target="_blank">
+                            <a href="https://preview--qkey-quest-bb84.lovable.app/" target="_blank">
                                 <i class="fas fa-external-link-alt"></i> Live Demo
                             </a>
                         </div>
@@ -654,10 +691,10 @@
                         <h3>Portfolio Website</h3>
                         <p>A modern, responsive portfolio website built with HTML, CSS, and JavaScript featuring 3D animations, interactive UI elements, and smooth transitions.</p>
                         <div class="project-links">
-                            <a href="https://github.com/PRODHOSH" target="_blank">
+                            <a href="https://github.com/PRODHOSH/portfolio" target="_blank">
                                 <i class="fab fa-github"></i> GitHub
                             </a>
-                            <a href="#" target="_blank">
+                            <a href="https://claude.ai/public/artifacts/ff37ae88-835c-44e5-9b70-f3d1017af498" target="_blank">
                                 <i class="fas fa-external-link-alt"></i> Live Demo
                             </a>
                         </div>
@@ -669,35 +706,63 @@
 
     <!-- Certifications Section -->
     <section id="certifications">
-        <div class="container">
-            <h2 class="section-title">Certifications</h2>
-            <p class="section-subtitle">Professional achievements</p>
-            <div class="cert-grid">
-                <div class="cert-card" onclick="window.open('#', '_blank')">
-                    <h3>Supervised Machine Learning: Regression and Classification</h3>
-                    <p class="cert-issuer">DeepLearning.AI</p>
-                    <p class="cert-date">Issued Sep 2025</p>
-                    <p>Credential ID: RLVKAQNEGOFX</p>
-                </div>
-                <div class="cert-card" onclick="window.open('#', '_blank')">
-                    <h3>Introduction to Generative AI</h3>
-                    <p class="cert-issuer">Google Cloud Official</p>
-                    <p class="cert-date">Issued Aug 2025</p>
-                    <p>Credential ID: 17658524</p>
-                </div>
-                <div class="cert-card" onclick="window.open('#', '_blank')">
-                    <h3>AI For Everyone</h3>
-                    <p class="cert-issuer">DeepLearning.AI</p>
-                    <p class="cert-date">Issued Jul 2025</p>
-                    <p>Credential ID: ZOEWJSPSODOS</p>
-                </div>
-                <div class="cert-card" onclick="window.open('#', '_blank')">
-                    <h3>Fundamentals of Machine Learning and Artificial Intelligence</h3>
-                    <p class="cert-issuer">Amazon Web Services (AWS)</p>
-                    <p class="cert-date">Issued Jul 2025</p>
-                </div>
-            </div>
+    <div class="container">
+        <h2 class="section-title">Certifications</h2>
+        <p class="section-subtitle">Professional achievements</p>
+
+        <div class="cert-grid">
+        <!-- Cert 1 -->
+        <div class="cert-card" onclick="showCertImage('ml-cert.png')">
+            <h3>Supervised Machine Learning: Regression and Classification</h3>
+            <p class="cert-issuer">DeepLearning.AI</p>
+            <p class="cert-date">Issued Sep 2025</p>
+            <p>
+            Credential ID: 
+            <a href="https://www.coursera.org/account/accomplishments/verify/RLVKAQNEGOFX" target="_blank">
+                RLVKAQNEGOFX
+            </a>
+            </p>
         </div>
+
+        <!-- Cert 2 -->
+        <div class="cert-card" onclick="showCertImage('gen-ai-cert.gif')">
+            <h3>Introduction to Generative AI</h3>
+            <p class="cert-issuer">Google Cloud Official</p>
+            <p class="cert-date">Issued Aug 2025</p>
+            <p>
+            Credential ID: 
+            <a href="https://www.cloudskillsboost.google/public_profiles/597c2bbf-00ea-4fb3-a088-1fbcc104f8c4/badges/17658524?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share" target="_blank">
+                17658524
+            </a>
+            </p>
+        </div>
+
+        <!-- Cert 3 -->
+        <div class="cert-card" onclick="showCertImage('ai-for-everyone.gif')">
+            <h3>AI For Everyone</h3>
+            <p class="cert-issuer">DeepLearning.AI</p>
+            <p class="cert-date">Issued Jul 2025</p>
+            <p>
+            Credential ID: 
+            <a href="https://www.coursera.org/account/accomplishments/verify/ZOEWJSPSODOS" target="_blank">
+                ZOEWJSPSODOS
+            </a>
+            </p>
+        </div>
+
+        <!-- Cert 4 -->
+        <div class="cert-card" onclick="showCertImage('aws-ml-cert.gif')">
+            <h3>Fundamentals of Machine Learning and Artificial Intelligence</h3>
+            <p class="cert-issuer">Amazon Web Services (AWS)</p>
+            <p class="cert-date">Issued Jul 2025</p>
+        </div>
+        </div>
+
+        <!-- Animated Image Display -->
+        <div id="cert-preview" class="cert-preview hidden">
+        <img id="cert-image" src="" alt="Certificate Preview" />
+        </div>
+    </div>
     </section>
 
     <!-- Contact Section -->
@@ -721,7 +786,7 @@
                     </a>
                 </div>
                 <div class="download-resume">
-                    <a href="#" class="cta-button" onclick="alert('Resume download will be available soon!')">
+                    <a href="Prodhosh Resume.pdf" class="cta-button" onclick="alert('Downloading Resume...')">
                         <i class="fas fa-download"></i> Download Resume
                     </a>
                 </div>
@@ -871,6 +936,8 @@
 
         // Initialize Three.js when page loads
         window.addEventListener('load', initThreeJS);
+
+    
 
         // Add hover effects to skill cards
         document.querySelectorAll('.skill-card').forEach(card => {
