@@ -8,7 +8,7 @@
 
 **A stunning, interactive 3D portfolio website showcasing the journey of an aspiring Data Scientist**
 
-[🚀 Live Demo](#) • [📖 Documentation](#features) • [🛠️ Installation](#installation) • [🎨 Customization](#customization)
+ [🔗 Live Demo](https://claude.ai/public/artifacts/6848cabf-02af-41b5-b25e-fcf75eabdc3a) • [📖 Documentation](#features) • [🛠️ Installation](#installation) • [🎨 Customization](#customization)
 
 </div>
 
