@@ -8,7 +8,7 @@
 
 **A stunning, interactive 3D portfolio website showcasing the journey of an aspiring Data Scientist**
 
-[🚀 Live Demo](#) • [📖 Documentation](#features) • [🛠️ Installation](#installation) • [🎨 Customization](#customization)
+[🚀 Live Demo](#https://prodhosh.github.io/portfolio/****) • [📖 Documentation](#features) • [🛠️ Installation](#installation) • [🎨 Customization](#customization)
 
 </div>
 
