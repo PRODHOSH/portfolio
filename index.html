@@ -572,54 +572,62 @@ I’m curious, always up for learning something new, and excited to explore how 
     </section
 
     <!-- skills section -->
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title">Tech Skills</h2>
-            <p class="section-subtitle">Technologies I work with</p>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <i class="fab fa-python"></i>
-                    <h3>Python</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-cuttlefish"></i>
-                    <h3>C++</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-html5"></i>
-                    <h3>HTML5</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-css3-alt"></i>
-                    <h3>CSS3</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>NumPy</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-table"></i>
-                    <h3>Pandas</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-database"></i>
-                    <h3>MySQL</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-git-alt"></i>
-                    <h3>Git</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-github"></i>
-                    <h3>GitHub</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-cloud"></i>
-                    <h3>Netlify</h3>
-                </div>
+<section id="skills">
+    <div class="container">
+        <h2 class="section-title">Tech Skills</h2>
+        <p class="section-subtitle">Technologies I work with</p>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fab fa-python"></i>
+                <h3>Python</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-cuttlefish"></i>
+                <h3>C++</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-html5"></i>
+                <h3>HTML5</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-css3-alt"></i>
+                <h3>CSS3</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-js"></i>
+                <h3>JavaScript</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>NumPy</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-table"></i>
+                <h3>Pandas</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-chart-bar"></i>
+                <h3>Matplotlib</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-chart-area"></i>
+                <h3>Seaborn</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-database"></i>
+                <h3>MySQL</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-git-alt"></i>
+                <h3>Git</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-github"></i>
+                <h3>GitHub</h3>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Education Section -->
     <section id="education">
@@ -688,13 +696,14 @@ I’m curious, always up for learning something new, and excited to explore how 
                         <i class="fas fa-briefcase"></i>
                     </div>
                     <div class="project-content">
-                        <h3>Portfolio Website</h3>
-                        <p>A modern, responsive portfolio website built with HTML, CSS, and JavaScript featuring 3D animations, interactive UI elements, and smooth transitions.</p>
+                        <h3>IMDb Sentiment Analysis</h3>
+                        <p>
+Sentiment analysis of IMDb movie reviews using Logistic Regression. Achieves 87% accuracy on 50K reviews dataset. MIC Club AI/ML beginner project.</p>
                         <div class="project-links">
-                            <a href="https://github.com/PRODHOSH/portfolio" target="_blank">
+                            <a href="https://github.com/PRODHOSH/mic_ai_ml" target="_blank">
                                 <i class="fab fa-github"></i> GitHub
                             </a>
-                            <a href="https://claude.ai/public/artifacts/ff37ae88-835c-44e5-9b70-f3d1017af498" target="_blank">
+                            <a href="output.png" target="_blank">
                                 <i class="fas fa-external-link-alt"></i> Live Demo
                             </a>
                         </div>
@@ -725,6 +734,13 @@ I’m curious, always up for learning something new, and excited to explore how 
         </div>
 
         <!-- Cert 2 -->
+        <div class="cert-card" onclick="showCertImage('python-ds-cert.png')">
+            <h3>Python for Data Science</h3>
+            <p class="cert-issuer">NPTEL</p>
+            <p class="cert-date">Issued Sep 2025</p>
+        </div>
+
+        <!-- Cert 3 -->
         <div class="cert-card" onclick="showCertImage('gen-ai-cert.gif')">
             <h3>Introduction to Generative AI</h3>
             <p class="cert-issuer">Google Cloud Official</p>
@@ -737,7 +753,7 @@ I’m curious, always up for learning something new, and excited to explore how 
             </p>
         </div>
 
-        <!-- Cert 3 -->
+        <!-- Cert 4 -->
         <div class="cert-card" onclick="showCertImage('ai-for-everyone.gif')">
             <h3>AI For Everyone</h3>
             <p class="cert-issuer">DeepLearning.AI</p>
@@ -750,7 +766,7 @@ I’m curious, always up for learning something new, and excited to explore how 
             </p>
         </div>
 
-        <!-- Cert 4 -->
+        <!-- Cert 5 -->
         <div class="cert-card" onclick="showCertImage('aws-ml-cert.gif')">
             <h3>Fundamentals of Machine Learning and Artificial Intelligence</h3>
             <p class="cert-issuer">Amazon Web Services (AWS)</p>
@@ -764,6 +780,7 @@ I’m curious, always up for learning something new, and excited to explore how 
         </div>
     </div>
     </section>
+     
 
     <!-- Contact Section -->
     <section id="contact">
