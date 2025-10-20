@@ -13,7 +13,7 @@ class SimpleParticles {
         
         // Default options
         this.options = {
-            particleCount: 100,
+            particleCount: 200,
             particleSize: 2,
             particleSpeed: 0.5,
             particleColors: ['#8a2be2', '#4b0082', '#6a0dad', '#ff69b4'],
