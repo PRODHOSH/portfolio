@@ -6,6 +6,7 @@
     <title>PRODHOSH V.S - Portfolio</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Particles.css">
     <style>
         * {
             margin: 0;
@@ -14,41 +15,27 @@
         }
 
         :root {
-            --primary-color: #6366f1;
-            --secondary-color: #8b5cf6;
-            --accent-color: #06b6d4;
-            --bg-dark: #0f172a;
-            --bg-light: #1e293b;
-            --text-light: #f8fafc;
-            --text-gray: #cbd5e1;
-            --glass-bg: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
-        }
-
-        [data-theme="light"] {
-            --bg-dark: #f8fafc;
-            --bg-light: #e2e8f0;
-            --text-light: #1e293b;
-            --text-gray: #475569;
-            --glass-bg: rgba(0, 0, 0, 0.1);
-            --glass-border: rgba(0, 0, 0, 0.2);
+            --primary-color: #8a2be2;
+            --secondary-color: #4b0082;
+            --accent-color: #6a0dad;
+            --bg-dark: #000000;
+            --bg-light: #111111;
+            --text-light: #ffffff;
+            --text-gray: #cccccc;
+            --glass-bg: rgba(138, 43, 226, 0.1);
+            --glass-border: rgba(138, 43, 226, 0.3);
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg-dark);
+            background: #000000;
             color: var(--text-light);
             overflow-x: hidden;
             line-height: 1.6;
         }
 
         #three-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+            display: none; /* disabled in favor of galaxy */
         }
 
         /* Navigation */
@@ -82,23 +69,7 @@
         }
 
         .theme-toggle {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            color: var(--text-light);
-            padding: 12px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.1) rotate(180deg);
-            background: var(--primary-color);
+            display: none; /* removed dark/light mode */
         }
 
         /* Sections */
@@ -131,12 +102,13 @@
         .hero h1 {
             font-size: clamp(3rem, 8vw, 8rem);
             font-weight: 800;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            background: linear-gradient(135deg, #a78bfa, #8b5cf6, #7c3aed);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
             animation: glow 3s ease-in-out infinite alternate;
+            text-shadow: 0 0 20px rgba(167, 139, 250, 0.3);
         }
 
         @keyframes glow {
@@ -153,7 +125,7 @@
 
         .cta-button {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
+            color: #ffffff;
             padding: 15px 30px;
             border: none;
             border-radius: 50px;
@@ -164,11 +136,29 @@
             text-decoration: none;
             display: inline-block;
             animation: fadeInUp 1s ease 1s both;
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(138, 43, 226, 0.6);
         }
 
         /* About Section */
@@ -244,27 +234,51 @@
             font-weight: 600;
         }
 
-        /* Education Section */
+        /* Education Section - Vertical Timeline */
         .education-timeline {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 40px;
             position: relative;
+            margin-top: 40px;
+            padding-left: 30px;
+        }
+
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
         }
 
         .education-item {
+            position: relative;
             background: var(--glass-bg);
             backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
             padding: 30px;
             border-radius: 20px;
-            width: 45%;
+            margin-bottom: 40px;
+            margin-left: 40px;
             transition: all 0.3s ease;
         }
 
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: -55px;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 4px solid #000000;
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+        }
+
         .education-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+            transform: translateX(10px);
+            box-shadow: 0 20px 40px rgba(138, 43, 226, 0.2);
         }
 
         .education-item h3 {
@@ -350,10 +364,10 @@
             transform: translateX(5px);
         }
 
-        /* Certifications Section */
+        /* Certifications Section - Redesigned */
         .cert-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
@@ -363,36 +377,63 @@
             backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
-            padding: 25px;
+            overflow: hidden;
             transition: all 0.3s ease;
             cursor: pointer;
+            position: relative;
         }
 
         .cert-card:hover {
             transform: translateY(-10px);
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
+            box-shadow: 0 20px 40px rgba(138, 43, 226, 0.2);
         }
 
-        .cert-card h3 {
+        
+
+
+        .cert-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cert-content {
+            padding: 25px;
+        }
+
+        .cert-content h3 {
             color: var(--primary-color);
             font-size: 1.3rem;
             margin-bottom: 10px;
-        }
-
-        .cert-card:hover h3 {
-            color: white;
+            line-height: 1.4;
         }
 
         .cert-issuer {
             color: var(--accent-color);
             font-weight: 600;
             margin-bottom: 10px;
+            font-size: 1rem;
         }
 
         .cert-date {
             color: var(--text-gray);
             font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .cert-credential {
+            color: var(--text-gray);
+            font-size: 0.85rem;
+        }
+
+        .cert-credential a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .cert-credential a:hover {
+            color: var(--primary-color);
         }
 
         /* ✅ New Preview Section */
@@ -524,11 +565,9 @@
     </style>
 </head>
 <body>
-    <div id="three-canvas"></div>
-    
-    <button class="theme-toggle" onclick="toggleTheme()">
-        <i class="fas fa-sun"></i>
-    </button>
+    <div class="particles-container">
+        <canvas id="particles-canvas"></canvas>
+    </div>
 
     <nav>
         <a href="#hero" class="nav-link active">Home</a>
@@ -552,9 +591,7 @@
         <div class="container">
             <div class="about-content">
                 <div>
-                    <div class="profile-image" style="width: 300px; height: 300px; border-radius: 50%; background: linear-gradient(135deg, #6366f1, #8b5cf6); display: flex; align-items: center; justify-content: center; font-size: 6rem; color: white;">
-                        <i class="fas fa-user"></i>
-                    </div>
+                    <img src="DP Photo.jpg" alt="Prodhosh V.S" class="profile-image" style="width: 300px; height: 350px; border-radius: 50%; object-fit: cover; border: 4px solid var(--primary-color); animation: float 6s ease-in-out infinite; box-shadow: 0 20px 40px rgba(138, 43, 226, 0.3);">
                 </div>
                 <div class="about-text">
                     <h2>About Me</h2>
@@ -647,6 +684,11 @@ I’m curious, always up for learning something new, and excited to explore how 
                     <p><strong>Indian Institute of Technology, Madras</strong></p>
                     <p>May 2025 - May 2029</p>
                 </div>
+                <div class="education-item">
+                    <h3>High School Diploma</h3>
+                    <p><strong>DAV Pallikaranai</strong></p>
+                    <p>June 2023 - May 2025</p>
+                </div>
             </div>
         </div>
     </section>
@@ -659,7 +701,7 @@ I’m curious, always up for learning something new, and excited to explore how 
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-image">
-                        <i class="fas fa-calculator"></i>
+                        <img src="iitmcgpa screenshot.png" alt="IITM CGPA Calculator" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="project-content">
                         <h3>IITM CGPA Calculator</h3>
@@ -676,7 +718,7 @@ I’m curious, always up for learning something new, and excited to explore how 
                 </div>
                 <div class="project-card">
                     <div class="project-image">
-                        <i class="fas fa-lock"></i>
+                        <img src="quantum screenshot.png" alt="Quantum Key Distribution" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="project-content">
                         <h3>Quantum Key Distribution</h3>
@@ -693,7 +735,7 @@ I’m curious, always up for learning something new, and excited to explore how 
                 </div>
                 <div class="project-card">
                     <div class="project-image">
-                        <i class="fas fa-briefcase"></i>
+                        <img src="output.png" alt="IMDb Sentiment Analysis" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="project-content">
                         <h3>IMDb Sentiment Analysis</h3>
@@ -721,56 +763,86 @@ Sentiment analysis of IMDb movie reviews using Logistic Regression. Achieves 87%
 
         <div class="cert-grid">
         <!-- Cert 1 -->
-        <div class="cert-card" onclick="showCertImage('ml-cert.png')">
-            <h3>Supervised Machine Learning: Regression and Classification</h3>
-            <p class="cert-issuer">DeepLearning.AI</p>
-            <p class="cert-date">Issued Sep 2025</p>
-            <p>
-            Credential ID: 
-            <a href="https://www.coursera.org/account/accomplishments/verify/RLVKAQNEGOFX" target="_blank">
-                RLVKAQNEGOFX
-            </a>
-            </p>
+        <div class="cert-card">
+            <div class="cert-image">
+                <!-- Add your certificate image here -->
+                <img src="cert 2.png" alt="ML Certificate">
+            </div>
+            <div class="cert-content">
+                <h3>Supervised Machine Learning: Regression and Classification</h3>
+                <p class="cert-issuer">DeepLearning.AI</p>
+                <p class="cert-date">Issued Sep 2025</p>
+                <p class="cert-credential">
+                    Credential ID: 
+                    <a href="https://www.coursera.org/account/accomplishments/verify/RLVKAQNEGOFX" target="_blank">
+                        RLVKAQNEGOFX
+                    </a>
+                </p>
+            </div>
         </div>
 
         <!-- Cert 2 -->
-        <div class="cert-card" onclick="showCertImage('python-ds-cert.png')">
-            <h3>Python for Data Science</h3>
-            <p class="cert-issuer">NPTEL</p>
-            <p class="cert-date">Issued Sep 2025</p>
+        <div class="cert-card">
+            <div class="cert-image">
+                <!-- Add your certificate image here -->
+                <img src="cert3.png" alt="Python DS Certificate"> 
+            </div>
+            <div class="cert-content">
+                <h3>Python for Data Science</h3>
+                <p class="cert-issuer">NPTEL</p>
+                <p class="cert-date">Issued Sep 2025</p>
+            </div>
         </div>
 
         <!-- Cert 3 -->
-        <div class="cert-card" onclick="showCertImage('gen-ai-cert.gif')">
-            <h3>Introduction to Generative AI</h3>
-            <p class="cert-issuer">Google Cloud Official</p>
-            <p class="cert-date">Issued Aug 2025</p>
-            <p>
-            Credential ID: 
-            <a href="https://www.cloudskillsboost.google/public_profiles/597c2bbf-00ea-4fb3-a088-1fbcc104f8c4/badges/17658524?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share" target="_blank">
-                17658524
-            </a>
-            </p>
+        <div class="cert-card">
+            <div class="cert-image">
+                <!-- Add your certificate image here -->
+                <img src="badge.png" alt="Gen AI Certificate">
+            </div>
+            <div class="cert-content">
+                <h3>Introduction to Generative AI</h3>
+                <p class="cert-issuer">Google Cloud Official</p>
+                <p class="cert-date">Issued Aug 2025</p>
+                <p class="cert-credential">
+                    Credential ID: 
+                    <a href="https://www.cloudskillsboost.google/public_profiles/597c2bbf-00ea-4fb3-a088-1fbcc104f8c4/badges/17658524?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share" target="_blank">
+                        17658524
+                    </a>
+                </p>
+            </div>
         </div>
 
         <!-- Cert 4 -->
-        <div class="cert-card" onclick="showCertImage('ai-for-everyone.gif')">
-            <h3>AI For Everyone</h3>
-            <p class="cert-issuer">DeepLearning.AI</p>
-            <p class="cert-date">Issued Jul 2025</p>
-            <p>
-            Credential ID: 
-            <a href="https://www.coursera.org/account/accomplishments/verify/ZOEWJSPSODOS" target="_blank">
-                ZOEWJSPSODOS
-            </a>
-            </p>
+        <div class="cert-card">
+            <div class="cert-image">
+                <!-- Add your certificate image here -->
+                <img src="CERT.png" alt="AI For Everyone Certificate"> 
+            </div>
+            <div class="cert-content">
+                <h3>AI For Everyone</h3>
+                <p class="cert-issuer">DeepLearning.AI</p>
+                <p class="cert-date">Issued Jul 2025</p>
+                <p class="cert-credential">
+                    Credential ID: 
+                    <a href="https://www.coursera.org/account/accomplishments/verify/ZOEWJSPSODOS" target="_blank">
+                        ZOEWJSPSODOS
+                    </a>
+                </p>
+            </div>
         </div>
 
         <!-- Cert 5 -->
-        <div class="cert-card" onclick="showCertImage('aws-ml-cert.gif')">
-            <h3>Fundamentals of Machine Learning and Artificial Intelligence</h3>
-            <p class="cert-issuer">Amazon Web Services (AWS)</p>
-            <p class="cert-date">Issued Jul 2025</p>
+        <div class="cert-card">
+            <div class="cert-image">
+                <!-- Add your certificate image here -->
+                <img src="ai_ml.png" alt="AWS ML Certificate"> 
+            </div>
+            <div class="cert-content">
+                <h3>Fundamentals of Machine Learning and Artificial Intelligence</h3>
+                <p class="cert-issuer">Amazon Web Services (AWS)</p>
+                <p class="cert-date">Issued Jul 2025</p>
+            </div>
         </div>
         </div>
 
@@ -811,80 +883,25 @@ Sentiment analysis of IMDb movie reviews using Logistic Regression. Achieves 87%
         </div>
     </section>
 
+    <script src="simple-particles.js"></script>
     <script>
-        // Theme Toggle
-        function toggleTheme() {
-            const body = document.body;
-            const themeIcon = document.querySelector('.theme-toggle i');
-            
-            if (body.getAttribute('data-theme') === 'light') {
-                body.removeAttribute('data-theme');
-                themeIcon.className = 'fas fa-sun';
-            } else {
-                body.setAttribute('data-theme', 'light');
-                themeIcon.className = 'fas fa-moon';
-            }
-        }
+        // Theme toggle removed - using particles theme only
 
-        // Three.js Scene
-        let scene, camera, renderer, particles;
-
-        function initThreeJS() {
-            scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setClearColor(0x000000, 0);
-            document.getElementById('three-canvas').appendChild(renderer.domElement);
-
-            // Create particles
-            const geometry = new THREE.BufferGeometry();
-            const vertices = [];
-            const colors = [];
-
-            for (let i = 0; i < 5000; i++) {
-                vertices.push(
-                    (Math.random() - 0.5) * 2000,
-                    (Math.random() - 0.5) * 2000,
-                    (Math.random() - 0.5) * 2000
-                );
-
-                const color = new THREE.Color();
-                color.setHSL(Math.random() * 0.3 + 0.6, 0.8, 0.5);
-                colors.push(color.r, color.g, color.b);
-            }
-
-            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-            geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
-
-            const material = new THREE.PointsMaterial({
-                size: 2,
-                vertexColors: true,
-                transparent: true,
-                opacity: 0.8
+        // Initialize Simple Particles background (full-viewport)
+        let particles;
+        window.addEventListener('load', () => {
+            const canvas = document.getElementById('particles-canvas');
+            particles = new SimpleParticles(canvas, {
+                particleCount: 150,
+                particleSize: 2,
+                particleSpeed: 0.5,
+                particleColors: ['#8a2be2', '#4b0082', '#6a0dad', '#ff69b4'],
+                connectionDistance: 120,
+                connectionOpacity: 0.1,
+                mouseRepulsion: true,
+                repulsionStrength: 2
             });
-
-            particles = new THREE.Points(geometry, material);
-            scene.add(particles);
-
-            camera.position.z = 100;
-
-            animate();
-        }
-
-        function animate() {
-            requestAnimationFrame(animate);
-
-            particles.rotation.x += 0.0005;
-            particles.rotation.y += 0.001;
-
-            const time = Date.now() * 0.0005;
-            camera.position.x = Math.cos(time) * 10;
-            camera.position.y = Math.sin(time) * 10;
-            camera.lookAt(scene.position);
-
-            renderer.render(scene, camera);
-        }
+        });
 
         // Smooth scrolling for navigation
         document.querySelectorAll('.nav-link').forEach(link => {
@@ -944,15 +961,7 @@ Sentiment analysis of IMDb movie reviews using Logistic Regression. Achieves 87%
             });
         });
 
-        // Window resize handler
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-
-        // Initialize Three.js when page loads
-        window.addEventListener('load', initThreeJS);
+        // Window resize handler for canvas sizing handled by gradient-blinds.js
 
     
 
@@ -986,6 +995,17 @@ Sentiment analysis of IMDb movie reviews using Logistic Regression. Achieves 87%
             const heroTitle = document.querySelector('.hero h1');
             const originalText = heroTitle.textContent;
             typeWriter(heroTitle, originalText, 100);
+        });
+
+        // Mouse tracking for particles effects
+        document.addEventListener('mousemove', (e) => {
+            const container = document.querySelector('.particles-container');
+            if (!container) return;
+            const rect = container.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / Math.max(1, rect.width)) * 100;
+            const y = ((e.clientY - rect.top) / Math.max(1, rect.height)) * 100;
+            container.style.setProperty('--mouse-x', `${x}%`);
+            container.style.setProperty('--mouse-y', `${y}%`);
         });
     </script>
 </body>
