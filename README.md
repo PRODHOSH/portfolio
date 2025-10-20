@@ -5,7 +5,7 @@
 
 ![Portfolio Banner](https://readme-typing-svg.demolab.com?font=Fira+Code&size=32&duration=2800&pause=2000&color=8A2BE2&center=true&vCenter=true&width=940&lines=Welcome+to+My+Digital+Universe+%F0%9F%9A%80;Aspiring+Data+Scientist+%F0%9F%93%8A;VIT+Chennai+%C3%97+IIT+Madras+%F0%9F%8E%93;Building+the+Future+with+Data+%E2%9C%A8)
 
-[![Portfolio](https://img.shields.io/badge/🌐_Portfolio-Live-8a2be2?style=for-the-badge&logoColor=white)](https://your-portfolio-link.com)
+[![Portfolio](https://img.shields.io/badge/🌐_Portfolio-Live-8a2be2?style=for-the-badge&logoColor=white)](https://prodhosh.github.io/portfolio/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/prodhoshvs/)
 [![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/PRODHOSH)
 [![Email](https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:prodhosh3@gmail.com)
