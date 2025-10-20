@@ -1,10 +1,11 @@
-# 🌌 PRODHOSH V.S - Portfolio
-
+<div align="center">
+<h1>🌌 PRODHOSH V.S - Portfolio</h1>
+</div>
 <div align="center">
 
 ![Portfolio Banner](https://readme-typing-svg.demolab.com?font=Fira+Code&size=32&duration=2800&pause=2000&color=8A2BE2&center=true&vCenter=true&width=940&lines=Welcome+to+My+Digital+Universe+%F0%9F%9A%80;Aspiring+Data+Scientist+%F0%9F%93%8A;VIT+Chennai+%C3%97+IIT+Madras+%F0%9F%8E%93;Building+the+Future+with+Data+%E2%9C%A8)
 
-[![Portfolio](https://img.shields.io/badge/🌐_Portfolio-Live-8a2be2?style=for-the-badge&logoColor=white)](https://your-portfolio-link.com)
+[![Portfolio](https://img.shields.io/badge/🌐_Portfolio-Live-8a2be2?style=for-the-badge&logoColor=white)](https://prodhosh.github.io/portfolio/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/prodhoshvs/)
 [![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/PRODHOSH)
 [![Email](https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:prodhosh3@gmail.com)
@@ -38,9 +39,9 @@ const portfolio = {
 
 <div align="center">
 
-### 🎯 [**View Live Portfolio →**](https://your-portfolio-link.com)
+### 🎯 [**View Live Portfolio →**](https://prodhosh.github.io/portfolio/)
 
-![Demo GIF](https://via.placeholder.com/800x400/8a2be2/ffffff?text=Portfolio+Demo)
+<img src="portfolio.gif" alt="Portfolio Demo" width="600" />
 
 </div>
 
@@ -244,56 +245,6 @@ git push origin main
 
 ---
 
-## 🎨 Customization Guide
-
-### Change Color Scheme
-Edit CSS variables in `index.html`:
-
-```css
-:root {
-    --primary-color: #8a2be2;    /* Purple */
-    --secondary-color: #4b0082;  /* Indigo */
-    --accent-color: #6a0dad;     /* Violet */
-}
-```
-
-### Modify Particle Settings
-Edit in `simple-particles.js` initialization:
-
-```javascript
-particles = new SimpleParticles(canvas, {
-    particleCount: 150,          // Number of particles
-    particleSize: 2,             // Size of particles
-    particleSpeed: 0.5,          // Movement speed
-    connectionDistance: 120,     // Connection line distance
-});
-```
-
-### Update Content
-- **Profile Image**: Replace `DP Photo.jpg`
-- **Projects**: Edit project cards in Projects section
-- **Skills**: Modify skill cards with Font Awesome icons
-- **Resume**: Replace `Prodhosh_new_Resume.pdf`
-
----
-
-## 📱 Responsive Design
-
-✅ Desktop (1920px+)  
-✅ Laptop (1024px - 1919px)  
-✅ Tablet (768px - 1023px)  
-✅ Mobile (320px - 767px)
-
----
-
-## 🌟 Performance
-
-- ⚡ **Lighthouse Score**: 95+
-- 🎨 **First Contentful Paint**: < 1.5s
-- 📦 **Total Bundle Size**: < 500KB
-- 🚀 **Interactive**: < 2s
-
----
 
 ## 🤝 Contributing
 
@@ -319,22 +270,13 @@ This project is **MIT** licensed - feel free to use it for your own portfolio!
 
 | Platform | Link |
 |:--------:|:----:|
-| 🌐 Portfolio | [Visit Site](https://your-portfolio-link.com) |
+| 🌐 Portfolio | [Visit Site](https://prodhosh.github.io/portfolio/) |
 | 💼 LinkedIn | [prodhoshvs](https://www.linkedin.com/in/prodhoshvs/) |
 | 🐙 GitHub | [PRODHOSH](https://github.com/PRODHOSH) |
 | 📧 Email | [prodhosh3@gmail.com](mailto:prodhosh3@gmail.com) |
 | 📸 Instagram | [@itzprodhosh](https://www.instagram.com/itzprodhosh/) |
 
 </div>
-
----
-
-## 💎 Acknowledgments
-
-- **Three.js** - 3D graphics library
-- **Font Awesome** - Icon library
-- **Google Fonts** - Typography
-- **Inspiration** - Modern web design trends
 
 ---
 
