@@ -16,7 +16,7 @@ class SimpleParticles {
             particleCount: 200,
             particleSize: 2,
             particleSpeed: 0.5,
-            particleColors: ['#8a2be2', '#4b0082', '#6a0dad', '#ff69b4'],
+            particleColors: ['#8a2be2', '#900fedff', '#6a0dad', '#ff69b4'],
             connectionDistance: 100,
             connectionOpacity: 0.1,
             mouseRepulsion: true,
