@@ -955,7 +955,7 @@ Sentiment analysis of IMDb movie reviews using Logistic Regression. Achieves 87%
 
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === #${current}) {
+                if (link.getAttribute('href') === `#${current}`) {
                     link.classList.add('active');
                 }
             });
@@ -1004,8 +1004,8 @@ Sentiment analysis of IMDb movie reviews using Logistic Regression. Achieves 87%
             const rect = container.getBoundingClientRect();
             const x = ((e.clientX - rect.left) / Math.max(1, rect.width)) * 100;
             const y = ((e.clientY - rect.top) / Math.max(1, rect.height)) * 100;
-            container.style.setProperty('--mouse-x', ${x}%);
-            container.style.setProperty('--mouse-y', ${y}%);
+            container.style.setProperty('--mouse-x', `${x}%`);
+            container.style.setProperty('--mouse-y', `${y}%`);
         });
     </script>
 </body>
