@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRODHOSH V.S - Portfolio</title>
+    <title>portfolio</title>
+    <link rel="icon" href="favicon_photo.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="Particles.css">
@@ -102,7 +103,7 @@
 
         .hero h1 {
             font-size: clamp(3rem, 8vw, 8rem);
-            font-weight: 800;
+            font-weight: 770;
             background: linear-gradient(135deg, #a78bfa, #8b5cf6, #7c3aed);
             -webkit-background-clip: text;
             background-clip: text;
@@ -111,6 +112,8 @@
             animation: glow 3s ease-in-out infinite alternate;
             text-shadow: 0 0 20px rgba(167, 139, 250, 0.3);
         }
+        
+
 
         @keyframes glow {
             0% { filter: drop-shadow(0 0 20px var(--primary-color)); }
@@ -563,6 +566,7 @@
                 display: none;
             }
         }
+      
     </style>
 </head>
 <body>
@@ -583,9 +587,11 @@
     <!-- Hero Section -->
     <section id="hero" class="hero">
         <h1>PRODHOSH V.S</h1>
-        <p class="tagline">Aspiring Data Scientist | VIT CS × IIT Madras Data Science</p>
+        <p class="tagline" >Aspiring Data Scientist | VIT CS × IITM Data Science</p>
         <a href="#about" class="cta-button">Explore My Journey</a>
     </section>
+
+
 
     <!-- About Section -->
     <section id="about">
@@ -596,7 +602,7 @@
                 </div>
                 <div class="about-text">
                     <h2>About Me</h2>
-                    <p>Hi, I’m Prodhosh — a first-year CSE student at VIT Chennai and BS Data Science student at IIT Madras.
+                    <p class >Hi, I’m Prodhosh — a first-year CSE student at VIT Chennai and BS Data Science student at IIT Madras.
 I’m passionate about data science and machine learning, using code to solve real-world problems and learn continuously.</p>
                     <br>
                     <p>Currently, I’m an AI/ML Member at the Microsoft Innovations Club (VITC) and a Technical Team Member at the Mathematics Club (VITC).</p>
@@ -607,7 +613,7 @@ I’m passionate about data science and machine learning, using code to solve re
                 </div>
             </div>
         </div>
-    </section
+    </section>
 
     <!-- skills section -->
 <section id="skills">
@@ -767,7 +773,9 @@ Sentiment analysis of IMDb movie reviews using Logistic Regression. Achieves 87%
         <div class="cert-card">
             <div class="cert-image">
                 <!-- Add your certificate image here -->
+                <a href="https://www.coursera.org/account/accomplishments/verify/RLVKAQNEGOFX" target="_blank">
                 <img src="cert 2.png" alt="ML Certificate">
+                </a>
             </div>
             <div class="cert-content">
                 <h3>Supervised Machine Learning: Regression and Classification</h3>
@@ -786,7 +794,9 @@ Sentiment analysis of IMDb movie reviews using Logistic Regression. Achieves 87%
         <div class="cert-card">
             <div class="cert-image">
                 <!-- Add your certificate image here -->
+                <a href="cert3.png" target="_blank" title = "Click to verify certificate">
                 <img src="cert3.png" alt="Python DS Certificate"> 
+                </a>
             </div>
             <div class="cert-content">
                 <h3>Python for Data Science</h3>
@@ -799,7 +809,9 @@ Sentiment analysis of IMDb movie reviews using Logistic Regression. Achieves 87%
         <div class="cert-card">
             <div class="cert-image">
                 <!-- Add your certificate image here -->
+                <a href="https://www.cloudskillsboost.google/public_profiles/597c2bbf-00ea-4fb3-a088-1fbcc104f8c4/badges/17658524?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share" target="_blank" title = "Click to verify certificate">
                 <img src="badge.png" alt="Gen AI Certificate">
+                </a>
             </div>
             <div class="cert-content">
                 <h3>Introduction to Generative AI</h3>
@@ -818,7 +830,9 @@ Sentiment analysis of IMDb movie reviews using Logistic Regression. Achieves 87%
         <div class="cert-card">
             <div class="cert-image">
                 <!-- Add your certificate image here -->
+                <a href="https://www.coursera.org/account/accomplishments/verify/ZOEWJSPSODOS" target="_blank" title = "Click to verify certificate">
                 <img src="CERT.png" alt="AI For Everyone Certificate"> 
+                </a>
             </div>
             <div class="cert-content">
                 <h3>AI For Everyone</h3>
@@ -1008,6 +1022,9 @@ Sentiment analysis of IMDb movie reviews using Logistic Regression. Achieves 87%
             container.style.setProperty('--mouse-x', `${x}%`);
             container.style.setProperty('--mouse-y', `${y}%`);
         });
+
     </script>
+    
+
 </body>
 </html>
