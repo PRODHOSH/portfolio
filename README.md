@@ -41,7 +41,7 @@ const portfolio = {
 
 ### 🎯 [**View Live Portfolio →**](https://prodhosh.github.io/portfolio/)
 
-<img src="readme-stuff/portfolio.gif" alt="Portfolio Demo" width="600" />
+<img src="readme-stuff/readme_portfolio.gif" alt="Portfolio Demo" width="600" />
 
 </div>
 

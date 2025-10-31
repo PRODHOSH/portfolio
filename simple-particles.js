@@ -1,6 +1,5 @@
 /**
- * Simple Particles Implementation
- * A reliable particle system using Canvas 2D for better compatibility
+ * Simple Particles Implementation compatibility
  */
 
 class SimpleParticles {

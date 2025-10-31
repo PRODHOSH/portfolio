@@ -1,11 +1,11 @@
-
+﻿
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>portfolio</title>
-    <link rel="icon" href="employee.png">
+    <link rel="icon" href="favicon.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="Particles.css">
@@ -470,6 +470,75 @@
             to { transform: scale(1); opacity: 1; }
         }
 
+        /* Experience Section */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .experience-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: left;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+        }
+
+        .experience-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 20px 40px rgba(138, 43, 226, 0.2);
+        }
+
+        .experience-icon {
+            width: 80px;
+            height: 80px;
+            background: transparent;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .experience-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .experience-card h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .experience-card h4 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .experience-card p {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
 
         /* Contact Section */
         .contact-content {
@@ -579,6 +648,7 @@
         <a href="#about" class="nav-link">About</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#education" class="nav-link">Education</a>
+        <a href="#experience" class="nav-link">Experience</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#certifications" class="nav-link">Certifications</a>
         <a href="#contact" class="nav-link">Contact</a>
@@ -700,6 +770,32 @@ I’m passionate about data science and machine learning, using code to solve re
         </div>
     </section>
 
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <p class="section-subtitle">Clubs & Organizations</p>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="experience-icon">
+                        <img src="experience-images/microsoft-club-logo.jpeg" alt="Microsoft Innovations Club" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <h3>AI/ML Member</h3>
+                    <h4>Microsoft Innovations Club, VIT Chennai</h4>
+                    <p>Contributing to AI/ML projects and workshops, collaborating with peers to explore cutting-edge technologies in artificial intelligence and machine learning.</p>
+                </div>
+                <div class="experience-card">
+                    <div class="experience-icon">
+                        <img src="experience-images/math-club-logo.jpeg" alt="Mathematics Club" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <h3>Technical Team Member</h3>
+                    <h4>Mathematics Club, VIT Chennai</h4>
+                    <p>Building and managing the club's technical infrastructure, including the website and online resources, to support events and activities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Projects Section -->
     <section id="projects">
         <div class="container">
@@ -725,7 +821,7 @@ I’m passionate about data science and machine learning, using code to solve re
                 </div>
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="project-images/quantum_project.png" alt="Quantum Key Distribution" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="project-images/bb84_photo.png" alt="Quantum Key Distribution" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="project-content">
                         <h3>Quantum Key Distribution</h3>
@@ -810,7 +906,7 @@ Sentiment analysis of IMDb movie reviews using Logistic Regression. Achieves 87%
             <div class="cert-image">
                 <!-- Add your certificate image here -->
                 <a href="https://www.cloudskillsboost.google/public_profiles/597c2bbf-00ea-4fb3-a088-1fbcc104f8c4/badges/17658524?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share" target="_blank" title = "Click to verify certificate">
-                <img src="certificate-images/badge.png" alt="Gen AI Certificate">
+                <img src="certificate-images/g_cloud_badge.png" alt="Gen AI Certificate">
                 </a>
             </div>
             <div class="cert-content">
