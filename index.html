@@ -28,12 +28,25 @@
             --glass-border: rgba(138, 43, 226, 0.3);
         }
 
+        [data-theme="light"] {
+            --primary-color: #8a2be2;
+            --secondary-color: #6a0dad;
+            --accent-color: #4b0082;
+            --bg-dark: #ffffff;
+            --bg-light: #f5f5f5;
+            --text-light: #000000;
+            --text-gray: #333333;
+            --glass-bg: rgba(138, 43, 226, 0.05);
+            --glass-border: rgba(138, 43, 226, 0.2);
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #000000;
+            background: var(--bg-dark);
             color: var(--text-light);
             overflow-x: hidden;
             line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         #three-canvas {
@@ -71,7 +84,28 @@
         }
 
         .theme-toggle {
-            display: none; /* removed dark/light mode */
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-light);
+            font-size: 1.2rem;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-color);
+            transform: scale(1.1);
         }
 
         /* Sections */
@@ -238,20 +272,23 @@
             font-weight: 600;
         }
 
-        /* Education Section - Vertical Timeline */
+        /* Education Section - Centered Vertical Timeline */
         .education-timeline {
             position: relative;
-            margin-top: 40px;
-            padding-left: 30px;
+            margin-top: 60px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .education-timeline::before {
             content: '';
             position: absolute;
-            left: 15px;
+            left: 50%;
+            transform: translateX(-50%);
             top: 0;
             bottom: 0;
-            width: 2px;
+            width: 3px;
             background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
         }
 
@@ -260,44 +297,85 @@
             background: var(--glass-bg);
             backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
-            padding: 30px;
-            border-radius: 20px;
-            margin-bottom: 40px;
-            margin-left: 40px;
+            padding: 20px 25px;
+            border-radius: 15px;
+            margin-bottom: 50px;
+            width: 45%;
             transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .education-item:nth-child(odd) {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        .education-item:nth-child(even) {
+            margin-left: auto;
+            margin-right: 0;
         }
 
         .education-item::before {
             content: '';
             position: absolute;
-            left: -55px;
-            top: 30px;
-            width: 20px;
-            height: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
             background: var(--primary-color);
             border-radius: 50%;
-            border: 4px solid #000000;
-            box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+            border: 3px solid var(--bg-dark);
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.6);
+            z-index: 1;
+        }
+
+        .education-item:nth-child(odd)::before {
+            right: -53px;
+        }
+
+        .education-item:nth-child(even)::before {
+            left: -53px;
+        }
+
+        .education-item::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 2px;
+            background: var(--glass-border);
+        }
+
+        .education-item:nth-child(odd)::after {
+            right: -40px;
+        }
+
+        .education-item:nth-child(even)::after {
+            left: -40px;
         }
 
         .education-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 20px 40px rgba(138, 43, 226, 0.2);
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(138, 43, 226, 0.3);
         }
 
         .education-item h3 {
             color: var(--primary-color);
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            font-weight: 600;
         }
 
         .education-item h4 {
             color: var(--accent-color);
-            margin-bottom: 15px;
+            margin-bottom: 8px;
+            font-size: 1rem;
         }
 
         .education-item p {
             color: var(--text-gray);
+            font-size: 0.95rem;
         }
 
         /* Projects Section */
@@ -622,13 +700,25 @@
                 text-align: center;
             }
             
-            .education-timeline {
-                flex-direction: column;
-                gap: 30px;
+            .education-timeline::before {
+                left: 20px;
             }
             
             .education-item {
-                width: 100%;
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+                margin-right: 0 !important;
+                text-align: left !important;
+            }
+            
+            .education-item::before {
+                left: -53px !important;
+                right: auto !important;
+            }
+            
+            .education-item::after {
+                left: -40px !important;
+                right: auto !important;
             }
             
             nav {
@@ -653,6 +743,10 @@
         <a href="#certifications" class="nav-link">Certifications</a>
         <a href="#contact" class="nav-link">Contact</a>
     </nav>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+    </button>
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
@@ -1013,22 +1107,64 @@ Sentiment analysis of IMDb movie reviews using Logistic Regression. Achieves 87%
 
     <script src="simple-particles.js"></script>
     <script>
-        // Theme toggle removed - using particles theme only
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        const particlesCanvas = document.getElementById('particles-canvas');
+        
+        // Check for saved theme preference or default to dark
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+            
+            // Update particles canvas background
+            updateParticlesTheme(newTheme);
+        });
+        
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        }
+        
+        function updateParticlesTheme(theme) {
+            if (theme === 'light') {
+                particlesCanvas.style.opacity = '0.3';
+            } else {
+                particlesCanvas.style.opacity = '1';
+            }
+        }
 
         // Initialize Simple Particles background (full-viewport)
         let particles;
         window.addEventListener('load', () => {
             const canvas = document.getElementById('particles-canvas');
             particles = new SimpleParticles(canvas, {
-                particleCount: 150,
+                particleCount: 300,
                 particleSize: 2,
-                particleSpeed: 0.5,
-                particleColors: ['#8a2be2', '#4b0082', '#6a0dad', '#ff69b4'],
-                connectionDistance: 120,
-                connectionOpacity: 0.1,
+                particleSpeed: 0.3,
+                particleColors: ['#ffffff'],
+                connectionDistance: 80,
+                connectionOpacity: 0.05,
                 mouseRepulsion: true,
-                repulsionStrength: 2
+                repulsionStrength: 0.5
             });
+            
+            // Set initial theme for particles
+            const theme = document.documentElement.getAttribute('data-theme');
+            updateParticlesTheme(theme);
         });
 
         // Smooth scrolling for navigation

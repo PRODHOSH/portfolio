@@ -1,4 +1,4 @@
-/* Particles.css - Enhanced Particle Background Styles */
+/* Particles.css - Galaxy Stars Background Styles */
 .particles-container {
   position: fixed;
   top: 0;
@@ -7,6 +7,12 @@
   height: 100vh;
   overflow: hidden;
   z-index: -1; /* ensure it sits behind all content */
+  background: #000000;
+  transition: background-color 0.3s ease;
+}
+
+[data-theme="light"] .particles-container {
+  background: #f0f0f0;
 }
 
 .particles-container canvas {
@@ -19,7 +25,7 @@
   mix-blend-mode: screen;
 }
 
-/* Enhanced particle effects */
+/* Enhanced particle effects - Subtle galaxy glow */
 .particles-container::before {
   content: '';
   position: absolute;
@@ -29,26 +35,36 @@
   height: 100%;
   background: radial-gradient(
     ellipse at center,
-    rgba(255, 255, 255, 0.05) 0%,
-    rgba(255, 255, 255, 0.02) 30%,
+    rgba(138, 43, 226, 0.03) 0%,
+    rgba(75, 0, 130, 0.02) 30%,
     transparent 70%
   );
   animation: particleGlow 8s ease-in-out infinite;
   z-index: 1;
+  pointer-events: none;
+}
+
+[data-theme="light"] .particles-container::before {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(138, 43, 226, 0.05) 0%,
+    rgba(75, 0, 130, 0.03) 30%,
+    transparent 70%
+  );
 }
 
 @keyframes particleGlow {
   0%, 100% {
-    opacity: 0.3;
+    opacity: 0.5;
     transform: scale(1);
   }
   50% {
-    opacity: 0.6;
+    opacity: 0.8;
     transform: scale(1.05);
   }
 }
 
-/* Interactive particle overlay */
+/* Interactive particle overlay - Minimal effect */
 .particles-container::after {
   content: '';
   position: absolute;
@@ -58,13 +74,27 @@
   height: 100%;
   background: radial-gradient(
     circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.05) 20%,
+    rgba(138, 43, 226, 0.05) 0%,
+    rgba(138, 43, 226, 0.02) 20%,
     transparent 60%
   );
   pointer-events: none;
   z-index: 2;
   transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.particles-container:hover::after {
+  opacity: 1;
+}
+
+[data-theme="light"] .particles-container::after {
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(138, 43, 226, 0.08) 0%,
+    rgba(138, 43, 226, 0.04) 20%,
+    transparent 60%
+  );
 }
 
 /* Responsive adjustments */
