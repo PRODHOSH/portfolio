@@ -1,3 +1,4 @@
+﻿
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -153,10 +154,21 @@
         }
 
         /* Portfolio Preview */
-        .portfolio-preview {
-            max-width: 800px;
+        .portfolio-preview-wrapper {
+            max-width: 900px;
             width: 100%;
             margin: 40px auto;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .portfolio-preview {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 0 40px rgba(0, 255, 159, 0.3);
@@ -175,6 +187,46 @@
             width: 100%;
             height: auto;
             display: block;
+        }
+
+        .qr-code-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            border-radius: 16px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 3px solid #00ff9f;
+            box-shadow: 0 0 40px rgba(0, 255, 159, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .qr-code-container:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 60px rgba(0, 255, 159, 0.5);
+        }
+
+        #qrcode {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 255, 159, 0.4);
+        }
+
+        .qr-label {
+            color: #00ff9f;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .qr-sublabel {
+            color: #ffffff;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-align: center;
         }
 
         /* CTA Buttons */
@@ -323,6 +375,15 @@
                 font-size: 1rem;
             }
 
+            .portfolio-preview-wrapper {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .portfolio-preview {
+                max-width: 100%;
+            }
+
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -385,11 +446,19 @@
                 <p class="message">Portfolio link has changed!</p>
                 <p class="submessage">Check out my new portfolio below</p>
 
-                <!-- Portfolio Preview Image -->
-                <div class="portfolio-preview">
-                    <a href="https://prodhosh.github.io/prodhosh-portfolio/" target="_blank" rel="noopener noreferrer">
-                        <img src="portfolio_cover.png" alt="Portfolio Preview" onerror="this.style.display='none'">
-                    </a>
+                <!-- Portfolio Preview Image with QR Code -->
+                <div class="portfolio-preview-wrapper">
+                    <div class="portfolio-preview">
+                        <a href="https://prodhosh.github.io/prodhosh-portfolio/" target="_blank" rel="noopener noreferrer">
+                            <img src="portfolio_cover.png" alt="Portfolio Preview" onerror="this.style.display='none'">
+                        </a>
+                    </div>
+                    
+                    <div class="qr-code-container">
+                        <div id="qrcode"></div>
+                        <div class="qr-label">Scan to Visit</div>
+                        <div class="qr-sublabel">Quick access on mobile</div>
+                    </div>
                 </div>
 
                 <!-- CTA Buttons -->
@@ -444,8 +513,23 @@
         </footer>
     </div>
 
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
     <!-- Lightning Effect Script -->
     <script>
+        // Generate QR Code
+        window.addEventListener('DOMContentLoaded', function() {
+            new QRCode(document.getElementById("qrcode"), {
+                text: "https://prodhosh.github.io/prodhosh-portfolio/",
+                width: 200,
+                height: 200,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        });
+
         // Lightning WebGL Shader Effect
         const container = document.getElementById('lightning-container');
         const canvas = document.createElement('canvas');
